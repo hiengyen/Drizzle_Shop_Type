@@ -1,7 +1,6 @@
 require('dotenv').config()
-import * as schema from './schema'
-const { drizzle } = require('drizzle-orm/node-postgres')
-const { Pool } = require('pg')
+import { drizzle } from 'drizzle-orm/node-postgres'
+import { Pool } from 'pg'
 
 //create collection to neon serverless
 const pool = new Pool({
@@ -9,6 +8,4 @@ const pool = new Pool({
   ssl: true,
 })
 
-const db = drizzle(pool, { schema })
-
-module.exports = db
+export const db = drizzle(pool)
