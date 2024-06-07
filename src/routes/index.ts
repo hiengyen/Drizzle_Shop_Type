@@ -1,12 +1,9 @@
-import express from 'express'
-import { Express, Request, Response } from 'express'
+import { Request, Response, Router } from 'express'
+import auth from './auth'
+const router = Router()
 
-const router = express.Router()
+router.use('/auth', auth)
 
 router.get('/healthcheck', (req: Request, res: Response) => res.sendStatus(200))
-// router.post('/auth/register', register)
-// router.post('/auth/login', login)
-// router.get('/users', isAuthenticated, getAllUsers)
-//
 
 export default router
